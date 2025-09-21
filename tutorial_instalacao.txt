@@ -1,0 +1,74 @@
+# Tutorial de Instalação - Projeto Veículos Militares
+
+Este guia explica como clonar o projeto do GitHub e configurar tudo em outro computador.
+
+---
+
+## 1. Requisitos
+
+- Instalar [XAMPP](https://www.apachefriends.org/) (inclui Apache + MySQL).
+- Instalar [Git](https://git-scm.com/).
+
+---
+
+## 2. Clonar o repositório
+
+Abra o terminal (cmd ou PowerShell) e execute:
+
+cd C:\xampp\htdocs
+git clone https://github.com/SEU-USUARIO/veiculos-militares.git projeto
+
+Isso criará a pasta `C:\xampp\htdocs\projeto` com todos os arquivos do sistema.
+
+---
+
+## 3. Importar o banco de dados
+
+1. Abra o **phpMyAdmin** no navegador:  
+   http://localhost/phpmyadmin
+
+2. Clique em **Importar**.
+
+3. Escolha o arquivo que está no repositório:  
+   `db/noticias_militares.sql`
+
+4. Clique em **Executar**.
+
+Isso criará o banco `noticias_militares` com as tabelas e dados.
+
+---
+
+## 4. Configuração do banco
+
+Se necessário, edite o arquivo `app/db.php`.  
+O padrão no XAMPP é:
+
+$pdo = new PDO("mysql:host=127.0.0.1;dbname=noticias_militares;charset=utf8mb4", "root", "");
+
+Se o MySQL estiver em outra porta (ex.: 3307), adicione `;port=3307`:
+
+$pdo = new PDO("mysql:host=127.0.0.1;port=3307;dbname=noticias_militares;charset=utf8mb4", "root", "");
+
+---
+
+## 5. Rodando o projeto
+
+1. Abra o painel do XAMPP e inicie **Apache** e **MySQL**.
+
+2. No navegador, acesse:
+
+http://localhost/projeto/public/index.php
+
+Você verá a página inicial do sistema.
+
+---
+
+## 6. Login / Cadastro
+
+- O sistema já vem com usuários e posts cadastrados (exportados do banco).  
+- Você pode usar a tela de cadastro para criar novos usuários.  
+- O admin pode criar/editar/excluir posts.
+
+---
+
+Pronto! O sistema estará rodando em seu computador.
