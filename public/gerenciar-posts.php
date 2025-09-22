@@ -54,7 +54,7 @@ $posts = $st->fetchAll();
       <h2>Gerenciar Posts</h2>
       <div class="d-flex gap-2">
         <a href="index.php" class="btn btn-outline-light">← Voltar</a>
-        <a href="../cadastrar-noticia.php" class="btn btn-light">+ Novo Post</a>
+        <a href="../cadastrar-noticia.php" class="btn btn-success btn-outline-light text-light">+ Novo Post</a>
       </div>
     </div>
 
@@ -88,7 +88,7 @@ $posts = $st->fetchAll();
                 <td><?= htmlspecialchars($p['author']) ?></td>
                 <td><?= htmlspecialchars($p['created_at']) ?></td>
                 <td class="text-end">
-                  <a class="btn btn-sm btn-outline-light" href="editar-post.php?id=<?= (int)$p['id'] ?>">Editar</a>
+                  <a class="btn btn-sm btn-warning" href="editar-post.php?id=<?= (int)$p['id'] ?>">Editar</a>
                   <form action="../actions/delete_post.php" method="post" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir?');">
                     <input type="hidden" name="id" value="<?= (int)$p['id'] ?>">
                     <button class="btn btn-sm btn-danger">Excluir</button>
