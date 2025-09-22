@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login — Veículos Militares</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro — Veículos Militares</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       background-color: #556b2f; /* verde camuflagem */
@@ -34,46 +34,37 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      
     </div>
   </nav>
 
   <!-- CONTEÚDO -->
   <main class="container" style="max-width: 680px;">
-    <h2 class="mb-4 text-white">Entrar</h2>
+    <h2 class="mb-4 text-white">Cadastro</h2>
 
-    <?php if (!empty($_GET['error'])): ?>
-      <div class="alert alert-danger">Usuário ou senha inválidos.</div>
-    <?php endif; ?>
+    <form action="actions/register.php" method="post" class="card p-4 shadow-sm">
+      <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input class="form-control" name="name" required>
+      </div>
 
-    <?php if (!empty($_GET['registered'])): ?>
-      <div class="alert alert-success">Cadastro realizado! Faça login abaixo.</div>
-    <?php endif; ?>
-
-    <?php if (!empty($_GET['redirect'])): ?>
-      <div class="alert alert-info">Faça login para continuar.</div>
-    <?php endif; ?>
-
-    <form action="actions/login.php" method="post" class="card p-4 shadow-sm">
-      <?php if (!empty($_GET['redirect'])): ?>
-        <input type="hidden" name="redirect" value="<?= htmlspecialchars($_GET['redirect']) ?>">
-      <?php endif; ?>
+      <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input class="form-control" type="email" name="email" required>
+      </div>
 
       <div class="mb-3">
         <label class="form-label">Usuário</label>
-        <input class="form-control" name="username" autocomplete="username" required>
+        <input class="form-control" name="username" required>
       </div>
 
       <div class="mb-3">
         <label class="form-label">Senha</label>
-        <input class="form-control" type="password" name="password" autocomplete="current-password" required>
+        <input class="form-control" type="password" name="password" required>
       </div>
 
       <div class="d-flex gap-2">
-        <button class="btn btn-success">Entrar</button>
-        <a class="btn btn-outline-light" href="public/index.php">Voltar</a>
-        <a class="btn btn-link text-white ms-auto" href="cadastro.php">Cadastre-se</a>
+        <button class="btn btn-success">Cadastrar</button>
+        <a class="btn btn-outline-light" href="login.php">Ir para Login</a>
       </div>
     </form>
   </main>

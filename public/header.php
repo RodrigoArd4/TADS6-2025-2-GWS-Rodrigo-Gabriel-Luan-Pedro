@@ -26,14 +26,14 @@ $rootUrl   = $isPublic ? rtrim(dirname($base), '/\\') : $base;     // ex.: /proj
     <div class="collapse navbar-collapse" id="menu">
       <!-- links principais à esquerda -->
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
-        <li class="nav-item"><a class="nav-link" href="categoria.php?slug=avioes">Aviões</a></li>
-        <li class="nav-item"><a class="nav-link" href="categoria.php?slug=tanques">Tanques</a></li>
-        <li class="nav-item"><a class="nav-link" href="categoria.php?slug=navios">Navios</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($publicUrl) ?>/index.php">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($publicUrl) ?>/categoria.php?slug=avioes">Aviões</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($publicUrl) ?>/categoria.php?slug=tanques">Tanques</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($publicUrl) ?>/categoria.php?slug=navios">Navios</a></li>
 
         <?php if ($u && ($u['role'] ?? null) === 'admin'): ?>
-          <li class="nav-item"><a class="nav-link" href="gerenciar-posts.php">Gerenciar posts</a></li>
-          <li class="nav-item"><a class="nav-link" href="../cadastrar-noticia.php">Nova Postagem</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($publicUrl) ?>/gerenciar-posts.php">Gerenciar posts</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($rootUrl) ?>/cadastrar-noticia.php">Nova Postagem</a></li>
         <?php endif; ?>
       </ul>
 
@@ -41,10 +41,10 @@ $rootUrl   = $isPublic ? rtrim(dirname($base), '/\\') : $base;     // ex.: /proj
       <ul class="navbar-nav ms-auto">
         <?php if ($u): ?>
           <li class="nav-item"><span class="nav-link">Olá, <?= htmlspecialchars($u['name']) ?></span></li>
-          <li class="nav-item"><a class="nav-link" href="../actions/logout.php">Sair</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($rootUrl) ?>/actions/logout.php">Sair</a></li>
         <?php else: ?>
-          <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="../cadastro.html">Cadastre-se</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($rootUrl) ?>/login.php">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars($rootUrl) ?>/cadastro.php">Cadastre-se</a></li>
         <?php endif; ?>
       </ul>
     </div>
